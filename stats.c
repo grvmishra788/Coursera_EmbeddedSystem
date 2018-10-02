@@ -21,6 +21,7 @@
  */
 
 
+
 #include <stdio.h>
 #include "stats.h"
 
@@ -43,28 +44,90 @@ void main() {
 
 void print_statistics(unsigned char* test,  unsigned int size)
 {
+        printf("Statistics of the given array: \n");
+        printf("\tMean: %d\n", find_mean(test, size));
+        printf("\tMedian: %d\n", find_median(test, size));
+        printf("\tMaximum: %d\n", find_maximum(test, size));
+        printf("\tMinimum: %d\n", find_minimum(test, size));
+
 }
+
 
 void print_array(unsigned char* test,  unsigned int size)
 {
+        int i;
+        for(i=0;i<size;i++)
+        {
+                printf("%d ", test[i]);
+        }
+        printf("\n");
 }
 
 unsigned char find_median(unsigned char* test,unsigned int size) 
 { 
+    sort_array(test, size); 
+  
+    if (size % 2 != 0) 
+       return test[size/2]; 
+      
+    return (unsigned char)(test[(size-1)/2] + test[size/2])/2; 
 } 
 
 unsigned char find_mean(unsigned char* test,unsigned int size) 
 {
+    unsigned int sum = 0; 
+    int i;
+    for (i = 0; i < size; i++)  
+    {
+        sum = sum+test[i];
+    } 
+    
+    return (unsigned char)((sum)/(unsigned char)size); 
 }
 
 unsigned char find_maximum(unsigned char* test,unsigned int size) 
 {
+    unsigned char maxm = 0; 
+    int i;
+        for (i = 0; i < size; i++)  
+        {
+                if(maxm<test[i])
+                {
+                        maxm = test[i];
+                }
+        }
+        
+      
+    return maxm; 
 }
+
 
 unsigned char find_minimum(unsigned char* test,unsigned int size) 
 {
+    unsigned char minm = test[0]; 
+    int i;
+        for (i = 1; i < size; i++)  
+        {
+                if(minm>test[i])
+                {
+                        minm = test[i];
+                }
+        }
+        
+      
+    return minm; 
 }
+
 
 void sort_array(unsigned char* test,  unsigned int size)
 {
+          int i, j; 
+           for (i = 0; i < size-1; i++)       
+                for (j = 0; j < size-i-1; j++)  
+                   if (test[j] < test[j+1]) 
+                      {
+                        unsigned char temp =test[j];
+                        test[j]=test[j+1];
+                        test[j+1]=temp;
+                      }
 }
