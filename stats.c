@@ -9,16 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Implementation file for my C-programming code
  *
- * <Add Extended Description Here>
+ * The file contains some functions that can analyze an array of unsigned char data
+ * items and report analytics on the maximum, minimum, mean, and median of the data set. 
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Gaurav Mishra
+ * @date 02-Oct-2018
  *
  */
-
 
 
 #include <stdio.h>
@@ -35,9 +35,36 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+  print_statistics(test, SIZE);
+  printf("\nDecreasingly Sorted Array: ");
+  print_array(test, SIZE);
 
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char* test,  unsigned int size)
+{
+}
+
+void print_array(unsigned char* test,  unsigned int size)
+{
+}
+
+unsigned char find_median(unsigned char* test,unsigned int size) 
+{ 
+} 
+
+unsigned char find_mean(unsigned char* test,unsigned int size) 
+{
+}
+
+unsigned char find_maximum(unsigned char* test,unsigned int size) 
+{
+}
+
+unsigned char find_minimum(unsigned char* test,unsigned int size) 
+{
+}
+
+void sort_array(unsigned char* test,  unsigned int size)
+{
+}
